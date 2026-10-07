@@ -12,8 +12,6 @@ Essa combinação trouxe o aspecto editorial e profissional que eu procurava. A 
 
 Depois da Home, percebi que seria importante planejar o restante do portfólio antes de continuar programando. Por isso, criei um mockup completo com as próximas seções e registrei as principais decisões de design. Esse planejamento evitou que cada parte parecesse pertencer a um site diferente.
 
-![Planejamento visual das seções do portfólio](./design/portfolio-proximas-secoes.png)
-
 ## Evolução das seções
 
 ### Sobre mim
