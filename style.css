@@ -35,6 +35,17 @@ img {
   max-width: 100%;
 }
 
+.seta-diagonal {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  stroke-width: 1.8;
+}
+
 /* Preloader: mantenha sem a classe .is-active até a etapa de animação. */
 .preloader {
   position: fixed;
@@ -219,6 +230,8 @@ img {
 
     .hero-links {
       display: flex;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 1vw;
       margin-top: 2rem;
 
@@ -247,6 +260,44 @@ img {
           width: 55%;
           height: 55%;
           fill: currentColor;
+        }
+      }
+
+      .hero-curriculo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        min-height: 44px;
+        padding: 0 1rem;
+        color: var(--blue-ink);
+        background: var(--card);
+        border: 1px solid var(--blue);
+        border-radius: 8px;
+        font-size: 0.78rem;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        transition: color 220ms ease, background-color 220ms ease;
+
+        &:hover,
+        &:focus-visible {
+          color: var(--background);
+          background: var(--blue-deep);
+
+          svg {
+            transform: translate(2px, -2px);
+          }
+        }
+
+        svg {
+          width: 17px;
+          height: 17px;
+          fill: none;
+          stroke: currentColor;
+          stroke-linecap: square;
+          stroke-linejoin: miter;
+          stroke-width: 1.8;
+          transition: transform 220ms ease;
         }
       }
     }
@@ -703,8 +754,10 @@ img {
         }
 
         .certificado-abrir {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           flex: 0 0 auto;
-          font-size: 1.1rem;
         }
 
       }
@@ -723,9 +776,6 @@ img {
           margin-top: 1rem;
         }
 
-        &[open] .certificados-botao span {
-          transform: rotate(90deg);
-        }
       }
 
       .certificados-botao {
@@ -741,10 +791,6 @@ img {
         border: 1px solid var(--blue);
         border-radius: 4px;
         transition: color 220ms ease, background-color 220ms ease;
-
-        span {
-          transition: transform 220ms ease;
-        }
 
         &:hover,
         &:focus-visible {
@@ -936,6 +982,234 @@ img {
   }
 }
 
+.contato {
+  width: 90%;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 8vh 0 6vh;
+  scroll-margin-top: 4vh;
+
+  .contato-cabecalho {
+    margin-bottom: 5vh;
+
+    .contato-numero {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+
+      span {
+        display: block;
+        width: 68px;
+        height: 1px;
+        background: var(--blue);
+      }
+    }
+
+    h2 {
+      margin: 0.7rem 0 0;
+      font-family: var(--serif);
+      font-size: 7.2rem;
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+    }
+  }
+
+  .contato-card {
+    display: flex;
+    gap: 5vw;
+    padding: 4vw;
+    background: var(--card);
+    border: 1px solid rgba(135, 154, 185, 0.28);
+    border-radius: 8px;
+
+    .contato-principal {
+      flex: 1.25;
+      min-width: 0;
+      padding-right: 5vw;
+      border-right: 1px solid var(--blue);
+
+      .contato-etiqueta {
+        margin: 0 0 1.2rem;
+        color: var(--blue);
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .contato-email {
+        display: inline-block;
+        max-width: 100%;
+        font-family: var(--serif);
+        font-size: 3.3vw;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        overflow-wrap: anywhere;
+        text-decoration: none;
+
+        &::after {
+          display: block;
+          width: 100%;
+          height: 1px;
+          margin-top: 0.5rem;
+          background: var(--blue);
+          content: "";
+          transform: scaleX(0.2);
+          transform-origin: left;
+          transition: transform 220ms ease;
+        }
+
+        &:hover::after,
+        &:focus-visible::after {
+          transform: scaleX(1);
+        }
+      }
+
+      .contato-mensagem {
+        max-width: 58ch;
+        margin: 2rem 0 0;
+        color: rgba(29, 43, 68, 0.68);
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+    }
+
+    .contato-opcoes {
+      display: flex;
+      flex: 0.75;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+
+      .contato-whatsapp {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding-bottom: 1.5rem;
+        text-decoration: none;
+        border-bottom: 1px solid var(--blue);
+
+        .contato-emoji {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 52px;
+          height: 52px;
+          flex: 0 0 52px;
+          background: rgba(135, 154, 185, 0.2);
+          border-radius: 8px;
+
+          img {
+            width: 35px;
+            height: 35px;
+          }
+        }
+
+        > span:last-child {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+
+          small {
+            color: rgba(29, 43, 68, 0.6);
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+          }
+
+          strong {
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            font-weight: 400;
+          }
+        }
+      }
+
+      .contato-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+
+        a {
+          display: flex;
+          flex: 1;
+          align-items: center;
+          justify-content: center;
+          gap: 0.6rem;
+          min-height: 48px;
+          font-size: 0.82rem;
+          border: 1px solid var(--blue);
+          border-radius: 4px;
+          text-decoration: none;
+          transition: color 220ms ease, background-color 220ms ease;
+
+          &:hover,
+          &:focus-visible {
+            color: var(--background);
+            background: var(--blue-deep);
+          }
+
+          svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+          }
+        }
+      }
+
+      .contato-curriculo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 52px;
+        margin-top: 1rem;
+        padding: 0 1.25rem;
+        color: var(--background);
+        background: var(--blue-deep);
+        border: 1px solid var(--blue-deep);
+        border-radius: 4px;
+        font-family: var(--serif);
+        font-size: 1rem;
+        text-decoration: none;
+        transition: color 220ms ease, background-color 220ms ease;
+
+        &:hover,
+        &:focus-visible {
+          color: var(--blue-deep);
+          background: transparent;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--blue);
+
+  p {
+    margin: 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+
+    span {
+      color: var(--blue);
+    }
+  }
+}
+
 .linguagens {
   width: 90%;
   margin: 0 auto;
@@ -1086,6 +1360,14 @@ img {
         p {
           font-size: 0.98rem;
         }
+      }
+    }
+  }
+
+  .contato {
+    .contato-cabecalho {
+      h2 {
+        font-size: 5.5rem;
       }
     }
   }
@@ -1269,6 +1551,40 @@ img {
         flex-basis: 100%;
         padding: 1.5rem 0 0 42%;
         border-top: 1px solid var(--blue);
+      }
+    }
+  }
+
+  .contato {
+    width: 95%;
+    max-width: 760px;
+
+    .contato-cabecalho {
+      h2 {
+        font-size: 5rem;
+      }
+    }
+
+    .contato-card {
+      gap: 3vw;
+      padding: 4vw;
+
+      .contato-principal {
+        padding-right: 3vw;
+
+        .contato-email {
+          font-size: 2.35rem;
+        }
+      }
+
+      .contato-opcoes {
+        .contato-whatsapp {
+          > span:last-child {
+            strong {
+              font-size: 1.15rem;
+            }
+          }
+        }
       }
     }
   }
@@ -1564,6 +1880,57 @@ img {
     }
   }
 
+  .contato {
+    width: 92%;
+    max-width: 560px;
+    padding: 8vh 0 5vh;
+
+    .contato-cabecalho {
+      margin-bottom: 6vh;
+
+      .contato-numero {
+        display: none;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 4rem;
+      }
+    }
+
+    .contato-card {
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem 6vw;
+
+      .contato-principal {
+        padding: 0 0 2rem;
+        border-right: 0;
+        border-bottom: 1px solid var(--blue);
+
+        .contato-email {
+          font-size: 2rem;
+        }
+
+        .contato-mensagem {
+          font-size: 1rem;
+        }
+      }
+
+      .contato-opcoes {
+        flex-basis: auto;
+      }
+    }
+  }
+
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 92%;
+    max-width: 560px;
+  }
+
   .preloader {
     .preloader-inner {
       .preloader-name {
@@ -1578,6 +1945,28 @@ img {
     .experiencia-cabecalho {
       h2 {
         font-size: 3.4rem;
+      }
+    }
+  }
+
+  .contato {
+    .contato-cabecalho {
+      h2 {
+        font-size: 3.4rem;
+      }
+    }
+
+    .contato-card {
+      .contato-principal {
+        .contato-email {
+          font-size: 1.75rem;
+        }
+      }
+
+      .contato-opcoes {
+        .contato-links {
+          flex-direction: column;
+        }
       }
     }
   }
