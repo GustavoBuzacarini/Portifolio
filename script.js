@@ -445,3 +445,213 @@ if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
     }
   }
 }
+
+// Troca a galeria principal pelos cards dos outros projetos.
+const botaoMaisProjetos = document.querySelector(".projetos-mais");
+const botaoVoltarProjetos = document.querySelector(".projetos-voltar");
+const painelInformacoesProjetos = document.querySelector(".projetos-info");
+const painelMidiaProjetos = document.querySelector(".projetos-midia");
+const painelProjetosExtras = document.querySelector(".projetos-extras");
+const cardsProjetosComVideo = document.querySelectorAll(
+  ".projeto-card--com-video",
+);
+
+let transicaoProjetosAtiva = false;
+
+function pararVideoDoCard(card) {
+  const video = card.querySelector("video");
+
+  if (!video) return;
+
+  card.classList.remove("projeto-card--video-ativo");
+  video.pause();
+  video.currentTime = 0;
+}
+
+function iniciarVideoDoCard(card) {
+  const video = card.querySelector("video");
+
+  if (!video || movimentoReduzido.matches) return;
+
+  video.currentTime = 0;
+
+  const reproducao = video.play();
+
+  if (!reproducao) {
+    card.classList.add("projeto-card--video-ativo");
+    return;
+  }
+
+  reproducao
+    .then(() => {
+      const cardContinuaAtivo =
+        card.matches(":hover") || card.contains(document.activeElement);
+
+      if (cardContinuaAtivo) {
+        card.classList.add("projeto-card--video-ativo");
+      } else {
+        pararVideoDoCard(card);
+      }
+    })
+    .catch(() => {
+      pararVideoDoCard(card);
+    });
+}
+
+function pararTodosOsVideosDosCards() {
+  cardsProjetosComVideo.forEach(pararVideoDoCard);
+}
+
+cardsProjetosComVideo.forEach((card) => {
+  card.addEventListener("mouseenter", () => iniciarVideoDoCard(card));
+  card.addEventListener("mouseleave", () => pararVideoDoCard(card));
+  card.addEventListener("focusin", () => iniciarVideoDoCard(card));
+  card.addEventListener("focusout", (evento) => {
+    if (!card.contains(evento.relatedTarget)) {
+      pararVideoDoCard(card);
+    }
+  });
+});
+
+function alternarPainelProjetos(mostrarExtras) {
+  if (
+    transicaoProjetosAtiva ||
+    !botaoMaisProjetos ||
+    !botaoVoltarProjetos ||
+    !painelInformacoesProjetos ||
+    !painelMidiaProjetos ||
+    !painelProjetosExtras
+  ) {
+    return;
+  }
+
+  transicaoProjetosAtiva = true;
+  botaoMaisProjetos.setAttribute("aria-expanded", mostrarExtras);
+
+  // Mantém a troca funcional mesmo sem GSAP ou com movimento reduzido.
+  if (typeof gsap === "undefined" || movimentoReduzido.matches) {
+    painelProjetosExtras.classList.toggle(
+      "projetos-extras--ativo",
+      mostrarExtras,
+    );
+    painelInformacoesProjetos.classList.toggle(
+      "projetos-destaques--ocultos",
+      mostrarExtras,
+    );
+    painelMidiaProjetos.classList.toggle(
+      "projetos-destaques--ocultos",
+      mostrarExtras,
+    );
+
+    painelProjetosExtras.setAttribute("aria-hidden", !mostrarExtras);
+    painelInformacoesProjetos.setAttribute("aria-hidden", mostrarExtras);
+    painelMidiaProjetos.setAttribute("aria-hidden", mostrarExtras);
+
+    if (mostrarExtras) {
+      botaoVoltarProjetos.focus();
+    } else {
+      botaoMaisProjetos.focus();
+    }
+
+    transicaoProjetosAtiva = false;
+    return;
+  }
+
+  const paineisDestaques = [
+    painelInformacoesProjetos,
+    painelMidiaProjetos,
+  ];
+
+  if (mostrarExtras) {
+    painelProjetosExtras.setAttribute("aria-hidden", "false");
+    gsap.set(painelProjetosExtras, {
+      visibility: "visible",
+      pointerEvents: "auto",
+    });
+
+    gsap
+      .timeline({
+        defaults: {
+          duration: 0.8,
+          ease: "power3.inOut",
+        },
+        onComplete: () => {
+          painelInformacoesProjetos.setAttribute("aria-hidden", "true");
+          painelMidiaProjetos.setAttribute("aria-hidden", "true");
+          botaoVoltarProjetos.focus();
+          transicaoProjetosAtiva = false;
+        },
+      })
+      // A galeria atual sai para a direita.
+      .to(
+        paineisDestaques,
+        {
+          x: () => window.innerWidth,
+          autoAlpha: 0,
+        },
+        0,
+      )
+      // Os novos cards entram pela esquerda ao mesmo tempo.
+      .fromTo(
+        painelProjetosExtras,
+        {
+          x: () => -window.innerWidth,
+          autoAlpha: 1,
+        },
+        {
+          x: 0,
+          autoAlpha: 1,
+        },
+        0,
+      );
+  } else {
+    pararTodosOsVideosDosCards();
+    painelInformacoesProjetos.setAttribute("aria-hidden", "false");
+    painelMidiaProjetos.setAttribute("aria-hidden", "false");
+
+    gsap
+      .timeline({
+        defaults: {
+          duration: 0.8,
+          ease: "power3.inOut",
+        },
+        onComplete: () => {
+          painelProjetosExtras.setAttribute("aria-hidden", "true");
+          gsap.set(painelProjetosExtras, {
+            visibility: "hidden",
+            pointerEvents: "none",
+          });
+          botaoMaisProjetos.focus();
+          transicaoProjetosAtiva = false;
+        },
+      })
+      .to(
+        painelProjetosExtras,
+        {
+          x: () => -window.innerWidth,
+          autoAlpha: 0,
+        },
+        0,
+      )
+      .fromTo(
+        paineisDestaques,
+        {
+          x: () => window.innerWidth,
+          autoAlpha: 0,
+        },
+        {
+          x: 0,
+          autoAlpha: 1,
+        },
+        0,
+      );
+  }
+}
+
+botaoMaisProjetos?.addEventListener("click", () => {
+  alternarPainelProjetos(true);
+});
+
+botaoVoltarProjetos?.addEventListener("click", () => {
+  alternarPainelProjetos(false);
+});
