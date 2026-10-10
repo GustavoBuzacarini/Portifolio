@@ -110,17 +110,9 @@ Logo abaixo, um footer simples encerra o portfólio sem adicionar informações 
 
 As bibliotecas do GSAP são carregadas por CDN, mantendo a estrutura do projeto simples e sem a necessidade de um processo de instalação mais complexo.
 
-## Como executar o projeto
+## Como abrir o projeto
 
-Como o portfólio utiliza JavaScript e arquivos locais, o ideal é abri-lo por meio de um servidor local, e não diretamente pelo arquivo `index.html`.
-
-Uma opção simples é usar a extensão **Live Server** no Visual Studio Code. Também é possível executar pelo terminal com:
-
-```bash
-npx http-server .
-```
-
-Depois, basta abrir no navegador o endereço informado pelo servidor.
+Para ficar facil a exibição do projeto, aperte neste link ou copie e cole no navegador para acessar a pagina do portifólio: https://gustavobuzacarini.github.io/Portifolio/
 
 ## Organização dos arquivos
 
