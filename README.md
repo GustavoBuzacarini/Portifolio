@@ -2,7 +2,7 @@
 
 Este portfólio nasceu com a intenção de apresentar minha trajetória de uma forma mais pessoal e profissional. Eu não queria apenas uma página com meu nome, algumas tecnologias e projetos organizados em cartões. A ideia sempre foi construir uma experiência visual que também mostrasse meu cuidado com identidade, organização e detalhes.
 
-O projeto ainda está em desenvolvimento, mas já representa bem a direção que escolhi seguir: uma interface elegante, com personalidade e sem exageros, construída de maneira compatível com o meu momento de aprendizado.
+Esta versão conclui a estrutura principal que planejei para o projeto. O resultado é uma interface elegante, com personalidade e sem exageros, construída de maneira compatível com o meu momento de aprendizado e preparada para receber novos projetos no futuro.
 
 ## Como o projeto começou
 
@@ -26,7 +26,7 @@ A fotografia recebeu um card próprio, usando o mesmo azul da Home. A moldura fo
 
 A seção **Projetos** se tornou a parte mais interativa do portfólio. A entrada começa com uma transição circular: conforme a página é rolada, o fundo azul-escuro cresce até ocupar toda a tela e apresentar o título da seção.
 
-Depois dessa abertura, os projetos são exibidos em uma galeria fixa controlada pela rolagem. Cada projeto apresenta uma imagem, uma breve explicação, as tecnologias utilizadas e um link para o respectivo repositório no GitHub. Também é possível clicar diretamente no nome de um projeto para navegar até ele, sem precisar passar por todos os anteriores.
+Depois dessa abertura, os projetos são exibidos em uma galeria fixa controlada pela rolagem. Cada projeto apresenta uma imagem, uma breve explicação, as tecnologias utilizadas, um link para o repositório e outro para visualizar o site funcionando no GitHub Pages. Também é possível clicar diretamente no nome de um projeto para navegar até ele, sem precisar passar por todos os anteriores.
 
 Atualmente, a galeria apresenta:
 
@@ -35,7 +35,14 @@ Atualmente, a galeria apresenta:
 - Pringles.
 - Stranger Things.
 
-A passagem entre a abertura e a galeria recebeu um efeito de parallax sutil. A intenção foi criar uma experiência mais marcante, mas sem transformar a animação em algo separado do restante do projeto.
+Abaixo da galeria, o botão **Ver mais projetos** abre uma segunda apresentação com projetos que representam outras etapas do meu aprendizado:
+
+- Pokédex, desenvolvida com C#, HTML, CSS e JavaScript.
+- Prism Studio, com HTML, CSS, JavaScript, GSAP e Three.js.
+- Meu próprio portfólio, reunindo o processo de design e desenvolvimento desta página.
+- MarryMe, meu TCC desenvolvido com React, TypeScript, CSS e Supabase.
+
+Essa segunda área usa cards mais tradicionais. Nos projetos que possuem gravação, a imagem é substituída por um vídeo quando o visitante passa o mouse ou navega pelo teclado. A passagem entre a abertura e a galeria também recebeu um efeito de parallax sutil. A intenção foi criar uma experiência mais marcante, mas sem transformar as animações em algo separado do restante do projeto.
 
 ### Formação
 
@@ -44,7 +51,7 @@ Na seção **Formação**, escolhi usar uma linha do tempo para apresentar duas 
 - Técnico em Informática Integrado ao Ensino Médio, na Escola Comendador João Rays.
 - Bacharelado em Ciência da Computação, no UNISAGRADO, iniciado em 2025 e ainda em andamento.
 
-Ao lado da formação acadêmica, adicionei meus certificados reais. Três deles ficam em destaque e os demais podem ser visualizados pelo botão **Ver certificados**. Cada card abre o arquivo original do certificado, mantendo a seção organizada sem esconder o conteúdo.
+Ao lado da formação acadêmica, adicionei meus certificados reais. Três deles ficam em destaque e os demais podem ser visualizados pelo botão **Ver certificados**. Entre os arquivos disponíveis também está o certificado de Sensibilização para a Segurança Digital da Cisco. Cada card abre o documento original, mantendo a seção organizada sem esconder o conteúdo.
 
 ### Experiência
 
@@ -54,9 +61,11 @@ Para representar essa experiência de maneira visual, utilizei uma imagem de cam
 
 ### Eventos
 
-A seção **Eventos** segue a mesma estrutura visual da experiência profissional e apresenta minha participação no VII Hack@day da UNISAGRADO. Durante o evento, trabalhei em equipe no desenvolvimento do CampusON, uma aplicação em React criada para reunir eventos do campus e apresentá-los também em um mapa interativo.
+A seção **Eventos** segue a mesma estrutura visual da experiência profissional. O primeiro card apresenta minha participação no VII Hack@day da UNISAGRADO. Durante o evento, trabalhei em equipe no desenvolvimento do CampusON, uma aplicação em React criada para reunir eventos do campus e apresentá-los também em um mapa interativo.
 
-Além de registrar o evento, essa parte do portfólio mostra uma experiência prática de colaboração, desenvolvimento e apresentação de uma solução em tecnologia.
+O segundo card registra o TCC MarryMe, desenvolvido em dupla na ETEC em 2024. O projeto foi uma aplicação voltada à organização e à apresentação de casamentos, construída com React, TypeScript e integração com o Supabase. Uma ilustração criada para o card representa a dupla apresentando o projeto para outras pessoas.
+
+Além de registrar esses momentos, essa parte do portfólio mostra experiências práticas de colaboração, desenvolvimento e apresentação de soluções em tecnologia.
 
 ### Contato
 
@@ -72,13 +81,15 @@ Logo abaixo, um footer simples encerra o portfólio sem adicionar informações 
 - Preloader animado para apresentar o portfólio durante o carregamento.
 - Seção Sobre mim com minha trajetória e características profissionais.
 - Abertura animada da seção Projetos.
-- Galeria com quatro projetos, tecnologias utilizadas e links para os repositórios.
+- Galeria com quatro projetos em destaque, tecnologias, repositórios e sites publicados.
 - Navegação clicável entre os projetos.
+- Painel com quatro projetos adicionais em cards.
+- Prévia em vídeo nos cards da Pokédex e do próprio portfólio.
 - Transição com parallax entre a abertura e a apresentação dos projetos.
 - Seção Formação com linha do tempo acadêmica.
-- Área de certificados com arquivos reais e opção de expansão.
+- Área de certificados com arquivos reais, incluindo o certificado da Cisco, e opção de expansão.
 - Seção Experiência com conteúdo da Transportadora Risso.
-- Seção Eventos com a participação no VII Hack@day e o projeto CampusON.
+- Seção Eventos com o VII Hack@day, o CampusON e o TCC MarryMe.
 - Seção Contato com e-mail, WhatsApp, redes profissionais e currículo.
 - Botão para retornar diretamente à Home.
 - Footer simples para encerrar a página.
@@ -111,9 +122,19 @@ npx http-server .
 
 Depois, basta abrir no navegador o endereço informado pelo servidor.
 
-## Próximos passos
+## Organização dos arquivos
 
-O portfólio já possui todas as seções principais. As próximas etapas serão voltadas a melhorias pontuais, como revisar os textos, atualizar projetos e certificados e aperfeiçoar detalhes de acessibilidade e desempenho sem perder a simplicidade do código.
+- `index.html`: estrutura e conteúdo de todas as seções.
+- `style.css`: identidade visual, layouts, estados e responsividade.
+- `script.js`: preloader, rolagem suave e animações dos projetos.
+- `assets/img`: fotografias, capas e ilustrações.
+- `assets/videos`: gravações usadas nos cards de projetos.
+- `assets/certificados`: certificados originais exibidos na seção Formação.
+- `assets/icons`: ícones utilizados pela interface.
+
+## Manutenção futura
+
+O portfólio está concluído em sua estrutura principal. A partir desta versão, as mudanças serão de manutenção: adicionar novos projetos e certificados, revisar informações profissionais e otimizar imagens ou vídeos quando necessário, sem perder a simplicidade do código.
 
 ## Sobre o desenvolvimento
 
